@@ -1,0 +1,38 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.7'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run tests
+        run: |
+          # Add your testing command here
+          echo "Running tests..."
+
+      - name: Build Docker image
+        run: |
+          docker build -t housing-price-prediction .
+
+      - name: Push to Docker Hub
+        run: |
+          echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+          docker tag housing-price-prediction $DOCKER_USERNAME/housing-price-prediction:latest
+          docker push $DOCKER_USERNAME/housing-price-prediction:latest

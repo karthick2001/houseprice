@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Housing Price Prediction</title>
+</head>
+<body>
+    <h1>Predict Housing Price</h1>
+    <form action="/predict" method="POST">
+        <label>No of bedrooms:</label>
+        <input type="number" name="bedrooms" required><br>
+        
+        <label>No of bathrooms:</label>
+        <input type="number" name="bathrooms" required><br>
+        
+        <label>Living area:</label>
+        <input type="number" step="0.01" name="living_area" required><br>
+        
+        <label>Lot area:</label>
+        <input type="number" step="0.01" name="lot_area" required><br>
+        
+        <label>No of floors:</label>
+        <input type="number" name="floors" required><br>
+        
+        <label>Waterfront present (1/0):</label>
+        <input type="number" name="waterfront" required><br>
+        
+        <label>No of views:</label>
+        <input type="number" name="views" required><br>
+        
+        <label>House condition:</label>
+        <input type="number" name="condition" required><br>
+        
+        <label>House grade:</label>
+        <input type="number" name="grade" required><br>
+        
+        <label>House area (excluding basement):</label>
+        <input type="number" step="0.01" name="house_area" required><br>
+        
+        <label>Area of the basement:</label>
+        <input type="number" step="0.01" name="basement_area" required><br>
+        
+        <label>Built Year:</label>
+        <input type="number" name="built_year" required><br>
+        
+        <label>Renovation Year:</label>
+        <input type="number" name="renovation_year" required><br>
+        
+        <label>No of schools nearby:</label>
+        <input type="number" name="schools" required><br>
+        
+        <label>Distance from the airport:</label>
+        <input type="number" step="0.01" name="airport_distance" required><br>
+        
+        <input type="submit" value="Predict Price">
+    </form>
+</body>
+</html>
